@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>My Fifth three.js app</title>
-    <style>
-      body {
-        margin: 0;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Interactive 3D N-Body gravitational physics simulation using Three.js and Rapier Physics." />
+    <meta name="theme-color" content="#030308" />
+    <title>Gravity 3D | Interactive Physics Simulation</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23ff2a5f'/><circle cx='50' cy='50' r='20' fill='%23ffd200'/></svg>" />
   </head>
   <body>
-    <script type="module" src="./main.js"></script>
+    <!-- Canvas Root -->
+    <div id="canvas-container"></div>
+
+    <!-- UI Overlay / HUD -->
+    <header class="hud">
+      <h1 class="hud-title">Gravity 3D</h1>
+      <p class="hud-subtitle">Interactive N-Body Gravitational Simulation</p>
+      <div class="hud-badges">
+        <span class="badge">210 Bodies</span>
+        <span class="badge">Rapier 3D WASM</span>
+        <span class="badge">Unreal Bloom</span>
+      </div>
+    </header>
+
+    <div class="hud-instruction">
+      Move cursor or touch to deflect gravitational cluster
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="spinner"></div>
+      <p class="loading-text">Initializing Physics Engine...</p>
+    </div>
+
+    <!-- WebGL Error Container -->
+    <div id="error-screen" class="hidden">
+      <div class="error-card">
+        <h2>WebGL 2 Not Supported</h2>
+        <p>Your browser or graphics card does not appear to support WebGL 2, which is required to run this simulation.</p>
+      </div>
+    </div>
+
+    <!-- Entry Module -->
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

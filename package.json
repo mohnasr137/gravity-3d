@@ -1,17 +1,28 @@
 {
-  "name": "test",
+  "name": "gravity-3d",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Interactive 3D N-body gravitational simulation built with Three.js and Rapier Physics",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.21.0",
+    "three": "^0.168.0"
+  },
   "devDependencies": {
     "vite": "^5.4.1"
   },
-  "dependencies": {
-    "three": "^0.168.0"
-  }
+  "keywords": [
+    "threejs",
+    "rapier",
+    "physics",
+    "webgl",
+    "simulation",
+    "bloom",
+    "gravity"
+  ]
 }

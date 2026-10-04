@@ -1,5 +1,7 @@
 # 🌌 Gravity 3D
 
+![Gravity 3D Simulation Preview](./home.png)
+
 An interactive, high-performance 3D N-body gravitational physics simulation built with **[Three.js](https://threejs.org/)**, **[Rapier 3D](https://rapier.rs/)** (WebAssembly), and **[Vite](https://vitejs.dev/)**.
 
 Hundreds of faceted icosahedral bodies are pulled toward a central gravitational singularity while colliding and tumbling in real-time 3D space. Users interact with the cluster via an emissive kinematic cursor sphere that deflects and scatters bodies with dynamic lighting and Unreal Bloom post-processing.
@@ -23,20 +25,20 @@ Hundreds of faceted icosahedral bodies are pulled toward a central gravitational
 ```
 gravity3D/
 ├── index.html                 # Main HTML entry point with canvas root, HUD, and loader
+├── main.js                    # Core app bootstrap, scene, camera, render loop, and events
+├── style.css                  # Canvas styling, modern HUD overlay, and loading screen
+├── home.png                   # Project preview screenshot
 ├── package.json               # Project metadata, dependencies, and build scripts
 ├── package-lock.json          # Dependency lockfile
 ├── vite.config.js             # Vite build and development configuration
 ├── README.md                  # Project documentation
-└── src/
-    ├── main.js                # Core app bootstrap, scene, camera, render loop, and events
-    ├── style.css              # Canvas styling, modern HUD overlay, and loading screen
-    ├── physics/
-    │   └── world.js           # Rapier 3D WASM initialization and physics world management
-    ├── entities/
-    │   ├── bodies.js          # Dynamic body cluster generator, materials, and gravity pull
-    │   └── mouseBall.js       # Kinematic cursor-tracking ball with glowing light & collider
-    └── effects/
-        └── postprocessing.js  # EffectComposer and UnrealBloomPass configuration
+├── physics/
+│   └── world.js               # Rapier 3D WASM initialization and physics world management
+├── entities/
+│   ├── bodies.js              # Dynamic body cluster generator, materials, and gravity pull
+│   └── mouseBall.js           # Kinematic cursor-tracking ball with glowing light & collider
+└── effects/
+    └── postprocessing.js      # EffectComposer and UnrealBloomPass configuration
 ```
 
 ---
@@ -100,18 +102,18 @@ npm run preview
 
 Key parameters can be configured across modular source files:
 
-- **Body Count & Gravity**: In [`src/main.js`](src/main.js), adjust `numBodies` or pass options to `createBodyCluster`:
+- **Body Count & Gravity**: In [`main.js`](main.js), adjust `numBodies` or pass options to `createBodyCluster`:
   ```javascript
   const cluster = createBodyCluster(RAPIER, world, scene, 210, {
     gravityStrength: 0.5,
     range: 6.0,
   });
   ```
-- **Color Palette**: In [`src/entities/bodies.js`](src/entities/bodies.js), edit `DEFAULT_COLORS` array:
+- **Color Palette**: In [`entities/bodies.js`](entities/bodies.js), edit `DEFAULT_COLORS` array:
   ```javascript
   const DEFAULT_COLORS = [0xff2a5f, 0x0077ff, 0xffd200];
   ```
-- **Bloom Glow Parameters**: In [`src/main.js`](src/main.js), configure `initPostprocessing`:
+- **Bloom Glow Parameters**: In [`main.js`](main.js), configure `initPostprocessing`:
   ```javascript
   const post = initPostprocessing(renderer, scene, camera, width, height, {
     strength: 2.0,  // Intensity of the bloom glow
@@ -119,7 +121,7 @@ Key parameters can be configured across modular source files:
     threshold: 0.005 // Luminosity threshold
   });
   ```
-- **Mouse Ball Collider & Light**: In [`src/entities/mouseBall.js`](src/entities/mouseBall.js), tweak `mouseSize`, `colliderMultiplier`, and `lightIntensity`.
+- **Mouse Ball Collider & Light**: In [`entities/mouseBall.js`](entities/mouseBall.js), tweak `mouseSize`, `colliderMultiplier`, and `lightIntensity`.
 
 ---
 

@@ -1,6 +1,8 @@
-# 🌌 Gravity 3D
+# 🌌 gravity-3d
 
-![Gravity 3D Simulation Preview](./home.png)
+<p align="center">
+  <img src="./home.png" alt="gravity-3d preview" width="100%" />
+</p>
 
 An interactive, high-performance 3D N-body gravitational physics simulation built with **[Three.js](https://threejs.org/)**, **[Rapier 3D](https://rapier.rs/)** (WebAssembly), and **[Vite](https://vitejs.dev/)**.
 
@@ -23,7 +25,7 @@ Hundreds of faceted icosahedral bodies are pulled toward a central gravitational
 ## 📁 Project Structure
 
 ```
-gravity3D/
+gravity-3d/
 ├── index.html                 # Main HTML entry point with canvas root, HUD, and loader
 ├── main.js                    # Core app bootstrap, scene, camera, render loop, and events
 ├── style.css                  # Canvas styling, modern HUD overlay, and loading screen
@@ -56,7 +58,7 @@ Clone the repository and install dependencies:
 
 ```bash
 git clone <repository-url>
-cd gravity3D
+cd gravity-3d
 npm install
 ```
 
